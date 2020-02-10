@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="384dd9c2-b7b7-45bc-bb65-ce1ed1483ca7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:62575/HairService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="HairService.wsdl" MetadataType="Wsdl" ID="507846e8-8502-42a2-9e6d-144c011b35db" SourceId="1" SourceUrl="http://localhost:62575/HairService.svc?wsdl" />
+    <MetadataFile FileName="HairService2.xsd" MetadataType="Schema" ID="2e3e348b-abc6-4e53-8d37-57cf5e28394e" SourceId="1" SourceUrl="http://localhost:62575/HairService.svc?xsd=xsd2" />
+    <MetadataFile FileName="HairService.xsd" MetadataType="Schema" ID="e53d26b7-781c-447f-8d26-68089a37d01b" SourceId="1" SourceUrl="http://localhost:62575/HairService.svc?xsd=xsd1" />
+    <MetadataFile FileName="HairService3.xsd" MetadataType="Schema" ID="6515f652-b84c-4d59-97fe-adbf0f732d13" SourceId="1" SourceUrl="http://localhost:62575/HairService.svc?xsd=xsd3" />
+    <MetadataFile FileName="HairService1.xsd" MetadataType="Schema" ID="34c3d1a5-49cb-4af2-b356-3d1b50380427" SourceId="1" SourceUrl="http://localhost:62575/HairService.svc?xsd=xsd0" />
+    <MetadataFile FileName="HairService.disco" MetadataType="Disco" ID="2d302472-e5b1-4046-8977-0ada92139abf" SourceId="1" SourceUrl="http://localhost:62575/HairService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HairService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:62575/HairService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:62575/HairService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:62575/HairService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HairPeaceService" />
+      <xsd:import schemaLocation="http://localhost:62575/HairService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IHairService_Prod_InputMessage">
+    <wsdl:part name="parameters" element="tns:Prod" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_Prod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_searchProdID_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchProdID" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_searchProdID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchProdIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_searchProd_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchProd" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_searchProd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_GetProd_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProd" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_GetProd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_modifyProd_InputMessage">
+    <wsdl:part name="parameters" element="tns:modifyProd" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_modifyProd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modifyProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_newProd_InputMessage">
+    <wsdl:part name="parameters" element="tns:newProd" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_newProd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:newProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_appendNewProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:appendNewProduct" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_appendNewProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:appendNewProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_SearchUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUser" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_SearchUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_GetAnonUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnonUser" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_GetAnonUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnonUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_editUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:editUser" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_editUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:editUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_Registered_InputMessage">
+    <wsdl:part name="parameters" element="tns:Registered" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_Registered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_prodList_InputMessage">
+    <wsdl:part name="parameters" element="tns:prodList" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_prodList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:prodListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_fillBySpecial_InputMessage">
+    <wsdl:part name="parameters" element="tns:fillBySpecial" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_fillBySpecial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:fillBySpecialResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_fillByProdType_InputMessage">
+    <wsdl:part name="parameters" element="tns:fillByProdType" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_fillByProdType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:fillByProdTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_fillByPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:fillByPrice" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_fillByPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:fillByPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_fillByBrand_InputMessage">
+    <wsdl:part name="parameters" element="tns:fillByBrand" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_fillByBrand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:fillByBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_htmlBrandFilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:htmlBrandFilter" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_htmlBrandFilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:htmlBrandFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_GetCarts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarts" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_GetCarts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_addToCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:addToCart" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_addToCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addToCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_removeItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeItem" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_removeItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_itemExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:itemExists" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_itemExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:itemExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_getTotalItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTotalItems" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_getTotalItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTotalItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_increasingQ_InputMessage">
+    <wsdl:part name="parameters" element="tns:increasingQ" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_increasingQ_OutputMessage">
+    <wsdl:part name="parameters" element="tns:increasingQResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_decreasingQ_InputMessage">
+    <wsdl:part name="parameters" element="tns:decreasingQ" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_decreasingQ_OutputMessage">
+    <wsdl:part name="parameters" element="tns:decreasingQResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_fillByDescOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:fillByDescOrder" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_fillByDescOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:fillByDescOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_addDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:addDetails" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_addDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_AddTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_AddTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_ClearCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCart" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_ClearCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_getInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_getInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_OrderExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrderExists" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_OrderExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrderExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_getInvoices_InputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoices" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_getInvoices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_getBillDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBillDetail" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_getBillDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBillDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_UserLoggings_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserLoggings" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_UserLoggings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserLoggingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_pStakerSetup_InputMessage">
+    <wsdl:part name="parameters" element="tns:pStakerSetup" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_pStakerSetup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:pStakerSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_ActiveUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActiveUsers" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_ActiveUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActiveUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_InactiveUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:InactiveUsers" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_InactiveUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InactiveUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_getTracking_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTracking" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_getTracking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTrackingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_IncrementTracking_InputMessage">
+    <wsdl:part name="parameters" element="tns:IncrementTracking" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_IncrementTracking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IncrementTrackingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_Days_InputMessage">
+    <wsdl:part name="parameters" element="tns:Days" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_Days_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_TransactionTings_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionTings" />
+  </wsdl:message>
+  <wsdl:message name="IHairService_TransactionTings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionTingsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IHairService">
+    <wsdl:operation name="Prod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/Prod" message="tns:IHairService_Prod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/ProdResponse" message="tns:IHairService_Prod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchProdID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/searchProdID" message="tns:IHairService_searchProdID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/searchProdIDResponse" message="tns:IHairService_searchProdID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchProd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/searchProd" message="tns:IHairService_searchProd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/searchProdResponse" message="tns:IHairService_searchProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/GetProd" message="tns:IHairService_GetProd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/GetProdResponse" message="tns:IHairService_GetProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modifyProd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/modifyProd" message="tns:IHairService_modifyProd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/modifyProdResponse" message="tns:IHairService_modifyProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="newProd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/newProd" message="tns:IHairService_newProd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/newProdResponse" message="tns:IHairService_newProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="appendNewProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/appendNewProduct" message="tns:IHairService_appendNewProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/appendNewProductResponse" message="tns:IHairService_appendNewProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/Login" message="tns:IHairService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/LoginResponse" message="tns:IHairService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/GetUser" message="tns:IHairService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/GetUserResponse" message="tns:IHairService_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/SearchUser" message="tns:IHairService_SearchUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/SearchUserResponse" message="tns:IHairService_SearchUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/GetAnonUser" message="tns:IHairService_GetAnonUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/GetAnonUserResponse" message="tns:IHairService_GetAnonUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="editUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/editUser" message="tns:IHairService_editUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/editUserResponse" message="tns:IHairService_editUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Registered">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/Registered" message="tns:IHairService_Registered_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/RegisteredResponse" message="tns:IHairService_Registered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/Register" message="tns:IHairService_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/RegisterResponse" message="tns:IHairService_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="prodList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/prodList" message="tns:IHairService_prodList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/prodListResponse" message="tns:IHairService_prodList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="fillBySpecial">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/fillBySpecial" message="tns:IHairService_fillBySpecial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/fillBySpecialResponse" message="tns:IHairService_fillBySpecial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="fillByProdType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/fillByProdType" message="tns:IHairService_fillByProdType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/fillByProdTypeResponse" message="tns:IHairService_fillByProdType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="fillByPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/fillByPrice" message="tns:IHairService_fillByPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/fillByPriceResponse" message="tns:IHairService_fillByPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="fillByBrand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/fillByBrand" message="tns:IHairService_fillByBrand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/fillByBrandResponse" message="tns:IHairService_fillByBrand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="htmlBrandFilter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/htmlBrandFilter" message="tns:IHairService_htmlBrandFilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/htmlBrandFilterResponse" message="tns:IHairService_htmlBrandFilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/GetCarts" message="tns:IHairService_GetCarts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/GetCartsResponse" message="tns:IHairService_GetCarts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addToCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/addToCart" message="tns:IHairService_addToCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/addToCartResponse" message="tns:IHairService_addToCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/removeItem" message="tns:IHairService_removeItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/removeItemResponse" message="tns:IHairService_removeItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="itemExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/itemExists" message="tns:IHairService_itemExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/itemExistsResponse" message="tns:IHairService_itemExists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTotalItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/getTotalItems" message="tns:IHairService_getTotalItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/getTotalItemsResponse" message="tns:IHairService_getTotalItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="increasingQ">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/increasingQ" message="tns:IHairService_increasingQ_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/increasingQResponse" message="tns:IHairService_increasingQ_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="decreasingQ">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/decreasingQ" message="tns:IHairService_decreasingQ_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/decreasingQResponse" message="tns:IHairService_decreasingQ_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="fillByDescOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/fillByDescOrder" message="tns:IHairService_fillByDescOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/fillByDescOrderResponse" message="tns:IHairService_fillByDescOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/addDetails" message="tns:IHairService_addDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/addDetailsResponse" message="tns:IHairService_addDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/AddTransaction" message="tns:IHairService_AddTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/AddTransactionResponse" message="tns:IHairService_AddTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/ClearCart" message="tns:IHairService_ClearCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/ClearCartResponse" message="tns:IHairService_ClearCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/getInvoice" message="tns:IHairService_getInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/getInvoiceResponse" message="tns:IHairService_getInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/OrderExists" message="tns:IHairService_OrderExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/OrderExistsResponse" message="tns:IHairService_OrderExists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getInvoices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/getInvoices" message="tns:IHairService_getInvoices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/getInvoicesResponse" message="tns:IHairService_getInvoices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBillDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/getBillDetail" message="tns:IHairService_getBillDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/getBillDetailResponse" message="tns:IHairService_getBillDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLoggings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/UserLoggings" message="tns:IHairService_UserLoggings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/UserLoggingsResponse" message="tns:IHairService_UserLoggings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="pStakerSetup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/pStakerSetup" message="tns:IHairService_pStakerSetup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/pStakerSetupResponse" message="tns:IHairService_pStakerSetup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActiveUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/ActiveUsers" message="tns:IHairService_ActiveUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/ActiveUsersResponse" message="tns:IHairService_ActiveUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InactiveUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/InactiveUsers" message="tns:IHairService_InactiveUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/InactiveUsersResponse" message="tns:IHairService_InactiveUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTracking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/getTracking" message="tns:IHairService_getTracking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/getTrackingResponse" message="tns:IHairService_getTracking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IncrementTracking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/IncrementTracking" message="tns:IHairService_IncrementTracking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/IncrementTrackingResponse" message="tns:IHairService_IncrementTracking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Days">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/Days" message="tns:IHairService_Days_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/DaysResponse" message="tns:IHairService_Days_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionTings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHairService/TransactionTings" message="tns:IHairService_TransactionTings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHairService/TransactionTingsResponse" message="tns:IHairService_TransactionTings_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IHairService" type="tns:IHairService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Prod">
+      <soap:operation soapAction="http://tempuri.org/IHairService/Prod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchProdID">
+      <soap:operation soapAction="http://tempuri.org/IHairService/searchProdID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchProd">
+      <soap:operation soapAction="http://tempuri.org/IHairService/searchProd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProd">
+      <soap:operation soapAction="http://tempuri.org/IHairService/GetProd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyProd">
+      <soap:operation soapAction="http://tempuri.org/IHairService/modifyProd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newProd">
+      <soap:operation soapAction="http://tempuri.org/IHairService/newProd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="appendNewProduct">
+      <soap:operation soapAction="http://tempuri.org/IHairService/appendNewProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IHairService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IHairService/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUser">
+      <soap:operation soapAction="http://tempuri.org/IHairService/SearchUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonUser">
+      <soap:operation soapAction="http://tempuri.org/IHairService/GetAnonUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editUser">
+      <soap:operation soapAction="http://tempuri.org/IHairService/editUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Registered">
+      <soap:operation soapAction="http://tempuri.org/IHairService/Registered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/IHairService/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="prodList">
+      <soap:operation soapAction="http://tempuri.org/IHairService/prodList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fillBySpecial">
+      <soap:operation soapAction="http://tempuri.org/IHairService/fillBySpecial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fillByProdType">
+      <soap:operation soapAction="http://tempuri.org/IHairService/fillByProdType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fillByPrice">
+      <soap:operation soapAction="http://tempuri.org/IHairService/fillByPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fillByBrand">
+      <soap:operation soapAction="http://tempuri.org/IHairService/fillByBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="htmlBrandFilter">
+      <soap:operation soapAction="http://tempuri.org/IHairService/htmlBrandFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarts">
+      <soap:operation soapAction="http://tempuri.org/IHairService/GetCarts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addToCart">
+      <soap:operation soapAction="http://tempuri.org/IHairService/addToCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeItem">
+      <soap:operation soapAction="http://tempuri.org/IHairService/removeItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="itemExists">
+      <soap:operation soapAction="http://tempuri.org/IHairService/itemExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTotalItems">
+      <soap:operation soapAction="http://tempuri.org/IHairService/getTotalItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="increasingQ">
+      <soap:operation soapAction="http://tempuri.org/IHairService/increasingQ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="decreasingQ">
+      <soap:operation soapAction="http://tempuri.org/IHairService/decreasingQ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fillByDescOrder">
+      <soap:operation soapAction="http://tempuri.org/IHairService/fillByDescOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addDetails">
+      <soap:operation soapAction="http://tempuri.org/IHairService/addDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTransaction">
+      <soap:operation soapAction="http://tempuri.org/IHairService/AddTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearCart">
+      <soap:operation soapAction="http://tempuri.org/IHairService/ClearCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvoice">
+      <soap:operation soapAction="http://tempuri.org/IHairService/getInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderExists">
+      <soap:operation soapAction="http://tempuri.org/IHairService/OrderExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvoices">
+      <soap:operation soapAction="http://tempuri.org/IHairService/getInvoices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBillDetail">
+      <soap:operation soapAction="http://tempuri.org/IHairService/getBillDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLoggings">
+      <soap:operation soapAction="http://tempuri.org/IHairService/UserLoggings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pStakerSetup">
+      <soap:operation soapAction="http://tempuri.org/IHairService/pStakerSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActiveUsers">
+      <soap:operation soapAction="http://tempuri.org/IHairService/ActiveUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InactiveUsers">
+      <soap:operation soapAction="http://tempuri.org/IHairService/InactiveUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTracking">
+      <soap:operation soapAction="http://tempuri.org/IHairService/getTracking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IncrementTracking">
+      <soap:operation soapAction="http://tempuri.org/IHairService/IncrementTracking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Days">
+      <soap:operation soapAction="http://tempuri.org/IHairService/Days" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionTings">
+      <soap:operation soapAction="http://tempuri.org/IHairService/TransactionTings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HairService">
+    <wsdl:port name="BasicHttpBinding_IHairService" binding="tns:BasicHttpBinding_IHairService">
+      <soap:address location="http://localhost:62575/HairService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

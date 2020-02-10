@@ -1,0 +1,3 @@
+function increasingQ(){
+	window.alert("Welcome");
+}

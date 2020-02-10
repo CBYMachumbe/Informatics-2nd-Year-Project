@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HairPeaceDataBase" Class="dbConnectionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HairPeaceDataBase.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="HairPeaceDataBaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.UserTable" Member="UserTables">
+    <Type Name="UserTable">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="User_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="User_Surname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="User_Email" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="UserTable_Cart" Member="Carts" ThisKey="ID" OtherKey="User_ID" Type="Cart" />
+      <Association Name="UserTable_billingDetail" Member="billingDetails" ThisKey="ID" OtherKey="User_ID" Type="billingDetail" />
+      <Association Name="UserTable_UserLogin" Member="UserLogins" ThisKey="ID" OtherKey="UserIDs" Type="UserLogin" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Serial_Number" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ProdType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ProdName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Special" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Brand" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="inStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Product_Cart" Member="Carts" ThisKey="ID" OtherKey="Prod_ID" Type="Cart" />
+      <Association Name="Product_TransactionHistory" Member="TransactionHistories" ThisKey="ID" OtherKey="Prod_ID" Type="TransactionHistory" />
+      <Association Name="Product_ProductStalker" Member="ProductStalker" ThisKey="ID" OtherKey="PS_ID" Type="ProductStalker" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cart" Member="Carts">
+    <Type Name="Cart">
+      <Column Name="Cart_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="User_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Prod_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Association Name="Product_Cart" Member="Product" ThisKey="Prod_ID" OtherKey="ID" Type="Product" IsForeignKey="true" />
+      <Association Name="UserTable_Cart" Member="UserTable" ThisKey="User_ID" OtherKey="ID" Type="UserTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TransactionHistory" Member="TransactionHistories">
+    <Type Name="TransactionHistory">
+      <Column Name="Purchase_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Prod_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Order_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Product_TransactionHistory" Member="Product" ThisKey="Prod_ID" OtherKey="ID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.billingDetails" Member="billingDetails">
+    <Type Name="billingDetail">
+      <Column Name="Bill_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="User_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Province" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="House_Adress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Street_Adress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ZIP" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="UserTable_billingDetail" Member="UserTable" ThisKey="User_ID" OtherKey="ID" Type="UserTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LogIns" Member="LogIns">
+    <Type Name="LogIn">
+      <Column Name="Date" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NumberOfLogins" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="LogIn_UserLogin" Member="UserLogins" ThisKey="Date" OtherKey="Date" Type="UserLogin" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserLogin" Member="UserLogins">
+    <Type Name="UserLogin">
+      <Column Name="LogID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="UserIDs" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumberOfLogins" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="LogIn_UserLogin" Member="LogIn" ThisKey="Date" OtherKey="Date" Type="LogIn" IsForeignKey="true" />
+      <Association Name="UserTable_UserLogin" Member="UserTable" ThisKey="UserIDs" OtherKey="ID" Type="UserTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductStalker" Member="ProductStalkers">
+    <Type Name="ProductStalker">
+      <Column Name="PS_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="P_SDate" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="P_SQuantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Product_ProductStalker" Member="Product" ThisKey="PS_ID" OtherKey="ID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PageTracking" Member="PageTrackings">
+    <Type Name="PageTracking">
+      <Column Name="Page_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Page_Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="nVisits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
